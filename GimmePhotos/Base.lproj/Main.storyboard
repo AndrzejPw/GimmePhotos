@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="GimmePhotos" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +705,82 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="GimmePhotos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="452" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
+                                <rect key="frame" x="20" y="49" width="412" height="94"/>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter numbers of files to copy (e.g. for files IMG_2001.jpg and IMG_2050.jpg enter &quot;2001 2005&quot;)" drawsBackground="YES" id="Dfb-rX-SQU">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-Vi-ZKU">
+                                <rect key="frame" x="20" y="184" width="279" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="279" id="xjP-kf-ovB"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Fxp-B0-VMT">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5hm-Wn-Ojz">
+                                <rect key="frame" x="301" y="177" width="137" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select directory" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8oo-lo-plj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AqT-iy-NUK">
+                                <rect key="frame" x="301" y="144" width="137" height="32"/>
+                                <buttonCell key="cell" type="push" title="Select directory" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UXy-k5-zzc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x4o-TA-nji">
+                                <rect key="frame" x="20" y="153" width="279" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="jGt-sY-i3h">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
+                                <rect key="frame" x="14" y="13" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="24h-fM-5GB"/>
+                            <constraint firstItem="Ajp-hE-ln7" firstAttribute="leading" secondItem="VYn-Ap-h2b" secondAttribute="leading" id="4vC-W5-OgF"/>
+                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="trailing" secondItem="AqT-iy-NUK" secondAttribute="trailing" id="CtI-eN-ufz"/>
+                            <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="FVO-6B-1ia"/>
+                            <constraint firstItem="Ajp-hE-ln7" firstAttribute="top" secondItem="VYn-Ap-h2b" secondAttribute="bottom" constant="8" symbolic="YES" id="GFu-OW-AfL"/>
+                            <constraint firstItem="5hm-Wn-Ojz" firstAttribute="leading" secondItem="EiY-Vi-ZKU" secondAttribute="trailing" constant="8" symbolic="YES" id="HrN-0O-Pnl"/>
+                            <constraint firstItem="AqT-iy-NUK" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="trailing" constant="8" symbolic="YES" id="ICl-t7-Gi9"/>
+                            <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="M9A-ub-mO8"/>
+                            <constraint firstItem="AqT-iy-NUK" firstAttribute="top" secondItem="5hm-Wn-Ojz" secondAttribute="bottom" constant="12" symbolic="YES" id="RSB-hI-tSi"/>
+                            <constraint firstItem="x4o-TA-nji" firstAttribute="top" secondItem="EiY-Vi-ZKU" secondAttribute="bottom" constant="10" symbolic="YES" id="ShD-oA-bP9"/>
+                            <constraint firstItem="EiY-Vi-ZKU" firstAttribute="trailing" secondItem="x4o-TA-nji" secondAttribute="trailing" id="V5B-p7-I15"/>
+                            <constraint firstItem="EiY-Vi-ZKU" firstAttribute="baseline" secondItem="5hm-Wn-Ojz" secondAttribute="baseline" id="bI0-Uq-dy2"/>
+                            <constraint firstAttribute="bottom" secondItem="Ajp-hE-ln7" secondAttribute="bottom" constant="20" symbolic="YES" id="fYR-5B-AAv"/>
+                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="top" secondItem="AqT-iy-NUK" secondAttribute="bottom" constant="8" symbolic="YES" id="ufP-p7-hwR"/>
+                            <constraint firstItem="EiY-Vi-ZKU" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="zXr-sk-5Ty"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="61" y="725.5"/>
         </scene>
     </scenes>
 </document>

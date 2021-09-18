@@ -689,7 +689,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -721,7 +721,7 @@
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-Vi-ZKU">
                                 <rect key="frame" x="20" y="184" width="279" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="xjP-kf-ovB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="279" id="xjP-kf-ovB"/>
                                 </constraints>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Fxp-B0-VMT">
                                     <font key="font" metaFont="system"/>
@@ -735,6 +735,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onSelectSrcDirectoryButtonClicked:" target="XfG-lQ-9wD" id="Aja-Am-RM7"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AqT-iy-NUK">
                                 <rect key="frame" x="301" y="144" width="137" height="32"/>
@@ -752,8 +755,8 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
-                                <rect key="frame" x="14" y="13" width="81" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
+                                <rect key="frame" x="14" y="13" width="101" height="32"/>
+                                <buttonCell key="cell" type="push" title="Copy files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -762,21 +765,27 @@
                         <constraints>
                             <constraint firstItem="VYn-Ap-h2b" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="24h-fM-5GB"/>
                             <constraint firstItem="Ajp-hE-ln7" firstAttribute="leading" secondItem="VYn-Ap-h2b" secondAttribute="leading" id="4vC-W5-OgF"/>
+                            <constraint firstAttribute="trailing" secondItem="VYn-Ap-h2b" secondAttribute="trailing" constant="20" symbolic="YES" id="BR4-wE-NDl"/>
                             <constraint firstItem="VYn-Ap-h2b" firstAttribute="trailing" secondItem="AqT-iy-NUK" secondAttribute="trailing" id="CtI-eN-ufz"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="FVO-6B-1ia"/>
                             <constraint firstItem="Ajp-hE-ln7" firstAttribute="top" secondItem="VYn-Ap-h2b" secondAttribute="bottom" constant="8" symbolic="YES" id="GFu-OW-AfL"/>
                             <constraint firstItem="5hm-Wn-Ojz" firstAttribute="leading" secondItem="EiY-Vi-ZKU" secondAttribute="trailing" constant="8" symbolic="YES" id="HrN-0O-Pnl"/>
                             <constraint firstItem="AqT-iy-NUK" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="trailing" constant="8" symbolic="YES" id="ICl-t7-Gi9"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="M9A-ub-mO8"/>
+                            <constraint firstAttribute="trailing" secondItem="AqT-iy-NUK" secondAttribute="trailing" constant="20" symbolic="YES" id="P4Q-HV-Dgc"/>
                             <constraint firstItem="AqT-iy-NUK" firstAttribute="top" secondItem="5hm-Wn-Ojz" secondAttribute="bottom" constant="12" symbolic="YES" id="RSB-hI-tSi"/>
                             <constraint firstItem="x4o-TA-nji" firstAttribute="top" secondItem="EiY-Vi-ZKU" secondAttribute="bottom" constant="10" symbolic="YES" id="ShD-oA-bP9"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="trailing" secondItem="x4o-TA-nji" secondAttribute="trailing" id="V5B-p7-I15"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="baseline" secondItem="5hm-Wn-Ojz" secondAttribute="baseline" id="bI0-Uq-dy2"/>
                             <constraint firstAttribute="bottom" secondItem="Ajp-hE-ln7" secondAttribute="bottom" constant="20" symbolic="YES" id="fYR-5B-AAv"/>
                             <constraint firstItem="VYn-Ap-h2b" firstAttribute="top" secondItem="AqT-iy-NUK" secondAttribute="bottom" constant="8" symbolic="YES" id="ufP-p7-hwR"/>
+                            <constraint firstAttribute="trailing" secondItem="5hm-Wn-Ojz" secondAttribute="trailing" constant="20" symbolic="YES" id="zEh-gw-172"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="zXr-sk-5Ty"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="srcDirectoryLabel" destination="EiY-Vi-ZKU" id="u6g-nY-oxl"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

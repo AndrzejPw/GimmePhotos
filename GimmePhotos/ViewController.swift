@@ -21,6 +21,30 @@ class ViewController: NSViewController {
         }
     }
 
-
+    @IBOutlet weak var srcDirectoryLabel: NSTextField!
+    @IBAction func onSelectSrcDirectoryButtonClicked(_ sender: Any) {
+        let dialog = NSOpenPanel()
+        dialog.canChooseDirectories = true
+        dialog.canChooseFiles = false
+        
+        
+          if dialog.runModal() == NSApplication.ModalResponse.OK {
+            srcDirectoryLabel.stringValue = dialog.url?.path ?? ""
+          } else {
+            // Cancel was pressed
+          }
+        
+        // Create a document picker for directories.
+//        let documentPicker =
+//            UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
+//        documentPicker.delegate = self
+//
+//        // Set the initial directory.
+//        //documentPicker.directoryURL = startingDirectory
+//
+//        // Present the document picker.
+//        present(documentPicker, animated: true, completion: nil)
+    }
+    
 }
 

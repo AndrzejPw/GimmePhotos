@@ -716,9 +716,6 @@
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <connections>
-                                        <action selector="onSelectTargetDirectoryButtonClicked:" target="XfG-lQ-9wD" id="qVK-JX-XbT"/>
-                                    </connections>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-Vi-ZKU">
@@ -762,7 +759,7 @@
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
                                 <rect key="frame" x="13" y="13" width="95" height="32"/>
-                                <buttonCell key="cell" type="push" title="Copy files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
+                                <buttonCell key="cell" type="push" title="Copy files" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -793,9 +790,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="CopyFilesButton" destination="EbX-fK-OIx" id="HaF-sO-Oq1"/>
                         <outlet property="srcDirectoryLabel" destination="EiY-Vi-ZKU" id="u6g-nY-oxl"/>
                         <outlet property="targetDirectoryLabel" destination="x4o-TA-nji" id="8jP-Ee-sDj"/>
-                        <outlet property="userInputTextField" destination="Dfb-rX-SQU" id="3i2-RW-dXL"/>
+                        <outlet property="userInputTextField" destination="VYn-Ap-h2b" id="WAM-KG-4tw"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

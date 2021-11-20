@@ -7,11 +7,11 @@
 
 import Cocoa
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, NSTextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -24,6 +24,7 @@ class ViewController: NSViewController {
     @IBOutlet weak var srcDirectoryLabel: NSTextField!
     @IBOutlet weak var targetDirectoryLabel: NSTextField!
     @IBAction func onSelectTargetDirectoryButtonClicked(_ sender: Any) {
+        refreshCopyButtonState()
         let dialog = NSOpenPanel()
         dialog.canChooseDirectories = true
         dialog.canChooseFiles = false
@@ -31,11 +32,21 @@ class ViewController: NSViewController {
         
           if dialog.runModal() == NSApplication.ModalResponse.OK {
               targetDirectoryLabel.stringValue = dialog.url?.path ?? ""
+              refreshCopyButtonState()
           } else {
             // Cancel was pressed
           }
     }
-    @IBOutlet weak var userInputTextField: NSTextFieldCell!
+
+    @IBOutlet weak var userInputTextField: NSTextField!{
+        didSet {
+            userInputTextField.delegate = self
+        }
+    }
+    
+    func controlTextDidChange(_ obj: Notification) {
+        refreshCopyButtonState()
+    }
     @IBAction func onSelectSrcDirectoryButtonClicked(_ sender: Any) {
         let dialog = NSOpenPanel()
         dialog.canChooseDirectories = true
@@ -44,21 +55,27 @@ class ViewController: NSViewController {
         
           if dialog.runModal() == NSApplication.ModalResponse.OK {
               srcDirectoryLabel.stringValue = dialog.url?.path ?? ""
-              dialog.url?.startAccessingSecurityScopedResource()
+              refreshCopyButtonState()
           } else {
             // Cancel was pressed
           }
     }
+    func refreshCopyButtonState(){
+        if (!srcDirectoryLabel.stringValue.isEmpty && !targetDirectoryLabel.stringValue.isEmpty && !userInputTextField.stringValue.isEmpty){
+            CopyFilesButton.isEnabled = true
+        } else {
+            CopyFilesButton.isEnabled = false
+        }
+    }
     
+    @IBOutlet weak var CopyFilesButton: NSButtonCell!
     @IBAction func onRunButtonClicked(_ sender: Any) {
-        //TODO add validation
+        
         do{
             try GimmePhotos.copy(from: srcDirectoryLabel.stringValue, to: targetDirectoryLabel.stringValue, fileInputFromUser: userInputTextField.stringValue)
         } catch {
             print("Unexpected error: \(error).")
         }
-        
-        
     }
     
 }

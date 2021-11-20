@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 func copy(from: String, to: String, fileInputFromUser: String) throws {
     let fileManager = FileManager.default
     let filesInSrcDirectory = try fileManager.contentsOfDirectory(atPath: from)
@@ -14,8 +15,9 @@ func copy(from: String, to: String, fileInputFromUser: String) throws {
     let filesToCopy = guessWhichFiles(filesInSrcDirectory, fileInputFromUser)
     for fileToCopy in filesToCopy {
         let srcFile = from + "/" + fileToCopy
+        let toFile = to + "/" + fileToCopy
         print("copying \(srcFile)")
-        try fileManager.copyItem(at: URL(fileURLWithPath: srcFile), to: URL(fileURLWithPath: to))
+        try fileManager.copyItem(at: URL(fileURLWithPath: srcFile), to: URL(fileURLWithPath: toFile))
         
     }
 }
@@ -44,8 +46,15 @@ private func findBestCandidate(candidates: Set<String>, nameInput: String) -> St
         .sorted { $0.range(of: nameInput)!.lowerBound > $1.range(of: nameInput)!.lowerBound}
         .first
 }
-extension StringProtocol {
-    func index<S: StringProtocol>(of string: S, options: String.CompareOptions = []) -> Index? {
-        range(of: string, options: options)?.lowerBound
+extension String {
+    func isDirectory() -> Bool {
+        let fileManager = FileManager.default
+        var isDir : ObjCBool = false
+        if fileManager.fileExists(atPath: self, isDirectory: &isDir) {
+            if isDir.boolValue {
+                return true
+            }
+        }
+        return false
     }
 }

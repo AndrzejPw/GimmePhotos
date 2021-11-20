@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -711,15 +711,18 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
-                                <rect key="frame" x="20" y="49" width="412" height="94"/>
+                                <rect key="frame" x="20" y="48" width="412" height="96"/>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter numbers of files to copy (e.g. for files IMG_2001.jpg and IMG_2050.jpg enter &quot;2001 2005&quot;)" drawsBackground="YES" id="Dfb-rX-SQU">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <action selector="onSelectTargetDirectoryButtonClicked:" target="XfG-lQ-9wD" id="qVK-JX-XbT"/>
+                                    </connections>
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-Vi-ZKU">
-                                <rect key="frame" x="20" y="184" width="279" height="21"/>
+                                <rect key="frame" x="20" y="184" width="287" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="279" id="xjP-kf-ovB"/>
                                 </constraints>
@@ -730,7 +733,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5hm-Wn-Ojz">
-                                <rect key="frame" x="301" y="177" width="137" height="32"/>
+                                <rect key="frame" x="308" y="177" width="131" height="32"/>
                                 <buttonCell key="cell" type="push" title="Select directory" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8oo-lo-plj">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -740,14 +743,17 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AqT-iy-NUK">
-                                <rect key="frame" x="301" y="144" width="137" height="32"/>
+                                <rect key="frame" x="308" y="145" width="131" height="32"/>
                                 <buttonCell key="cell" type="push" title="Select directory" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UXy-k5-zzc">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onSelectTargetDirectoryButtonClicked:" target="XfG-lQ-9wD" id="fKB-2n-xmX"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x4o-TA-nji">
-                                <rect key="frame" x="20" y="153" width="279" height="21"/>
+                                <rect key="frame" x="20" y="153" width="287" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="jGt-sY-i3h">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -755,11 +761,14 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
-                                <rect key="frame" x="14" y="13" width="101" height="32"/>
+                                <rect key="frame" x="13" y="13" width="95" height="32"/>
                                 <buttonCell key="cell" type="push" title="Copy files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="onRunButtonClicked:" target="XfG-lQ-9wD" id="XDu-4R-GK6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -785,6 +794,8 @@
                     </view>
                     <connections>
                         <outlet property="srcDirectoryLabel" destination="EiY-Vi-ZKU" id="u6g-nY-oxl"/>
+                        <outlet property="targetDirectoryLabel" destination="x4o-TA-nji" id="8jP-Ee-sDj"/>
+                        <outlet property="userInputTextField" destination="Dfb-rX-SQU" id="3i2-RW-dXL"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

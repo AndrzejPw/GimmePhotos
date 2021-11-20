@@ -22,6 +22,20 @@ class ViewController: NSViewController {
     }
 
     @IBOutlet weak var srcDirectoryLabel: NSTextField!
+    @IBOutlet weak var targetDirectoryLabel: NSTextField!
+    @IBAction func onSelectTargetDirectoryButtonClicked(_ sender: Any) {
+        let dialog = NSOpenPanel()
+        dialog.canChooseDirectories = true
+        dialog.canChooseFiles = false
+        dialog.canCreateDirectories = true
+        
+          if dialog.runModal() == NSApplication.ModalResponse.OK {
+              targetDirectoryLabel.stringValue = dialog.url?.path ?? ""
+          } else {
+            // Cancel was pressed
+          }
+    }
+    @IBOutlet weak var userInputTextField: NSTextFieldCell!
     @IBAction func onSelectSrcDirectoryButtonClicked(_ sender: Any) {
         let dialog = NSOpenPanel()
         dialog.canChooseDirectories = true
@@ -29,21 +43,22 @@ class ViewController: NSViewController {
         
         
           if dialog.runModal() == NSApplication.ModalResponse.OK {
-            srcDirectoryLabel.stringValue = dialog.url?.path ?? ""
+              srcDirectoryLabel.stringValue = dialog.url?.path ?? ""
+              dialog.url?.startAccessingSecurityScopedResource()
           } else {
             // Cancel was pressed
           }
+    }
+    
+    @IBAction func onRunButtonClicked(_ sender: Any) {
+        //TODO add validation
+        do{
+            try GimmePhotos.copy(from: srcDirectoryLabel.stringValue, to: targetDirectoryLabel.stringValue, fileInputFromUser: userInputTextField.stringValue)
+        } catch {
+            print("Unexpected error: \(error).")
+        }
         
-        // Create a document picker for directories.
-//        let documentPicker =
-//            UIDocumentPickerViewController(forOpeningContentTypes: [.folder])
-//        documentPicker.delegate = self
-//
-//        // Set the initial directory.
-//        //documentPicker.directoryURL = startingDirectory
-//
-//        // Present the document picker.
-//        present(documentPicker, animated: true, completion: nil)
+        
     }
     
 }

@@ -72,10 +72,28 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func onRunButtonClicked(_ sender: Any) {
         
         do{
-            try GimmePhotos.copy(from: srcDirectoryLabel.stringValue, to: targetDirectoryLabel.stringValue, fileInputFromUser: userInputTextField.stringValue)
+            let result = try GimmePhotos.copy(from: srcDirectoryLabel.stringValue, to: targetDirectoryLabel.stringValue, fileInputFromUser: userInputTextField.stringValue)
+            let dialog = NSAlert()
+            if (result.values.contains { $0 == nil}){
+                dialog.alertStyle = .warning
+                let filesWithoutMatch = result.filter { $0.value == nil }.keys.joined(separator: " ,")
+                let message = "Job finished. Couldn't find matching files for: \(filesWithoutMatch)"
+                dialog.messageText = message
+                
+            } else {
+                dialog.alertStyle = .informational
+                let message = "Job finished. \(result.count) files copied."
+                dialog.messageText = message
+            }
+            dialog.runModal()
         } catch {
             print("Unexpected error: \(error).")
+            let dialog = NSAlert(error: error)
+            dialog.runModal()
         }
+    }
+    func displayError(message: String) {
+//            let dialog = NSAlert(
     }
     
 }

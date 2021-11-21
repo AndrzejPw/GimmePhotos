@@ -13,8 +13,8 @@
 		962C59F726DA46D70004FFD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 962C59F526DA46D70004FFD3 /* Main.storyboard */; };
 		962C5A0326DA46D70004FFD3 /* GimmePhotosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C5A0226DA46D70004FFD3 /* GimmePhotosTests.swift */; };
 		962C5A0E26DA46D70004FFD3 /* GimmePhotosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 962C5A0D26DA46D70004FFD3 /* GimmePhotosUITests.swift */; };
-		CE9FC2212749520E00C6BA92 /* CopyFileWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FC2202749520E00C6BA92 /* CopyFileWorker.swift */; };
-		CE9FC22327495A5D00C6BA92 /* CopyFileWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FC22227495A5D00C6BA92 /* CopyFileWorkerTests.swift */; };
+		CE9FC2212749520E00C6BA92 /* logics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FC2202749520E00C6BA92 /* logics.swift */; };
+		CE9FC22327495A5D00C6BA92 /* logicsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9FC22227495A5D00C6BA92 /* logicsTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,8 @@
 		962C5A0926DA46D70004FFD3 /* GimmePhotosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GimmePhotosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		962C5A0D26DA46D70004FFD3 /* GimmePhotosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GimmePhotosUITests.swift; sourceTree = "<group>"; };
 		962C5A0F26DA46D70004FFD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CE9FC2202749520E00C6BA92 /* CopyFileWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyFileWorker.swift; sourceTree = "<group>"; };
-		CE9FC22227495A5D00C6BA92 /* CopyFileWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyFileWorkerTests.swift; sourceTree = "<group>"; };
+		CE9FC2202749520E00C6BA92 /* logics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logics.swift; sourceTree = "<group>"; };
+		CE9FC22227495A5D00C6BA92 /* logicsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logicsTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +106,7 @@
 				962C59F526DA46D70004FFD3 /* Main.storyboard */,
 				962C59F826DA46D70004FFD3 /* Info.plist */,
 				962C59F926DA46D70004FFD3 /* GimmePhotos.entitlements */,
-				CE9FC2202749520E00C6BA92 /* CopyFileWorker.swift */,
+				CE9FC2202749520E00C6BA92 /* logics.swift */,
 			);
 			path = GimmePhotos;
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 			children = (
 				962C5A0226DA46D70004FFD3 /* GimmePhotosTests.swift */,
 				962C5A0426DA46D70004FFD3 /* Info.plist */,
-				CE9FC22227495A5D00C6BA92 /* CopyFileWorkerTests.swift */,
+				CE9FC22227495A5D00C6BA92 /* logicsTest.swift */,
 			);
 			path = GimmePhotosTests;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				962C59F226DA46D50004FFD3 /* ViewController.swift in Sources */,
-				CE9FC2212749520E00C6BA92 /* CopyFileWorker.swift in Sources */,
+				CE9FC2212749520E00C6BA92 /* logics.swift in Sources */,
 				962C59F026DA46D50004FFD3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +269,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9FC22327495A5D00C6BA92 /* CopyFileWorkerTests.swift in Sources */,
+				CE9FC22327495A5D00C6BA92 /* logicsTest.swift in Sources */,
 				962C5A0326DA46D70004FFD3 /* GimmePhotosTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

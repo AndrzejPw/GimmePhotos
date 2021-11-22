@@ -92,9 +92,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             dialog.runModal()
         }
     }
-    func displayError(message: String) {
-//            let dialog = NSAlert(
-    }
     
 }
 

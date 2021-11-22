@@ -28,6 +28,7 @@ func guessWhichFiles(_ filesInSrcDirectory: [String], _ fileInputFromUser: Strin
     var fileNamesFromUser = fileInputFromUser
         .split(separator: ",")
         .map { $0.trimmingCharacters(in: .whitespaces)}
+        .flatMap { $0.split(separator: " ")}.map { String($0)}
     var result = findEasyMatches(fileNamesFromUser: fileNamesFromUser, filesInSrcDirectory: fileNames)
     fileNamesFromUser.removeAll{result.keys.contains($0)}
     for fileName in result.values.compactMap({ $0 }) {

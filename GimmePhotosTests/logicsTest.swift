@@ -45,6 +45,14 @@ class CopyFileWorkerTests: XCTestCase {
             XCTAssertEqual(guessedFiles["330"], nilString)
         }
     
+    func testGuessingFileNames_30202() {
+        let fileNames = ["IMG_3302.jpg", "IMG_4402.jpg"]
+        let guessedFiles = guessWhichFiles( fileNames,"02, 302")
+        XCTAssertEqual(guessedFiles["302"], "IMG_3302.jpg")
+        XCTAssertEqual(guessedFiles["02"], "IMG_4402.jpg")
+        
+    }
+    
     func testGuessingFileNames_LettersAreIgnored() {
         let fileNames = ["IMG_3302.jpg"]
         let guessedFiles = guessWhichFiles( fileNames, "302s")

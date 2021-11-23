@@ -25,19 +25,15 @@ func copy(from: String, to: String, fileInputFromUser: String) throws -> [String
 
 func guessWhichFiles(_ filesInSrcDirectory: [String], _ fileInputFromUser: String) -> [String:String?]{
     var fileNames = Set(filesInSrcDirectory)
-    var fileNamesFromUser = getNumbers(string: fileInputFromUser)
-    var result = findEasyMatches(fileNamesFromUser: fileNamesFromUser, filesInSrcDirectory: fileNames)
-    fileNamesFromUser.removeAll{result.keys.contains($0)}
+    var fileNumbersFromUser = getNumbers(string: fileInputFromUser)
+    var result = findEasyMatches(fileNumbersFromUser: fileNumbersFromUser, filesInSrcDirectory: fileNames)
+    fileNumbersFromUser.removeAll{result.keys.contains($0)}
     for fileName in result.values.compactMap({ $0 }) {
         fileNames.remove(fileName)
     }
     
-    for fileNameFromUser in fileNamesFromUser {
+    for fileNameFromUser in fileNumbersFromUser {
         result[fileNameFromUser] = nil as String?
-//        if let candidate = findBestCandidate(candidates: fileNames, nameInput: fileNameFromUser){
-//            result[fileNameFromUser] = candidate
-//            fileNames.remove(candidate)
-//        }
     }
     return result
 }
@@ -49,13 +45,13 @@ private func getNumbers(string: String) -> [String] {
         .map {String(string[Range($0.range, in: string)!])}
 }
 
-private func findEasyMatches(fileNamesFromUser: [String], filesInSrcDirectory: Set<String>) -> [String:String?]{
+private func findEasyMatches(fileNumbersFromUser: [String], filesInSrcDirectory: Set<String>) -> [String:String?]{
     var result: [String:String] = [:]
-    for fileNameFromUser in fileNamesFromUser {
-        if Int(fileNameFromUser) != nil {//so only digits in input
-            if let easyMatch = filesInSrcDirectory.first(where: { $0.onlyDigits().suffix(fileNameFromUser.count) == fileNameFromUser}) {
-                result[fileNameFromUser] = easyMatch
-            }
+    var candidateFiles = filesInSrcDirectory
+    for fileNoFromUser in fileNumbersFromUser.sorted(by: {$0.count >= $1.count }) {
+        if let easyMatch = candidateFiles.first(where: { $0.onlyDigits().suffix(fileNoFromUser.count) == fileNoFromUser}) {
+            result[fileNoFromUser] = easyMatch
+            candidateFiles.remove(easyMatch)
         }
     }
     return result

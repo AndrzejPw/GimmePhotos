@@ -76,7 +76,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             let dialog = NSAlert()
             if (result.values.contains { $0 == nil}){
                 dialog.alertStyle = .warning
-                let filesWithoutMatch = result.filter { $0.value == nil }.keys.joined(separator: " ,")
+                let filesWithoutMatch = result.filter { $0.value == nil }.keys.sorted().joined(separator: " ,")
                 let message = "Job finished. Couldn't find matching files for: \(filesWithoutMatch)"
                 dialog.messageText = message
                 

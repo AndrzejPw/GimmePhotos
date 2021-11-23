@@ -25,10 +25,7 @@ func copy(from: String, to: String, fileInputFromUser: String) throws -> [String
 
 func guessWhichFiles(_ filesInSrcDirectory: [String], _ fileInputFromUser: String) -> [String:String?]{
     var fileNames = Set(filesInSrcDirectory)
-    var fileNamesFromUser = fileInputFromUser
-        .split(separator: ",")
-        .map { $0.trimmingCharacters(in: .whitespaces)}
-        .flatMap { $0.split(separator: " ")}.map { String($0)}
+    var fileNamesFromUser = getNumbers(string: fileInputFromUser)
     var result = findEasyMatches(fileNamesFromUser: fileNamesFromUser, filesInSrcDirectory: fileNames)
     fileNamesFromUser.removeAll{result.keys.contains($0)}
     for fileName in result.values.compactMap({ $0 }) {
@@ -37,12 +34,19 @@ func guessWhichFiles(_ filesInSrcDirectory: [String], _ fileInputFromUser: Strin
     
     for fileNameFromUser in fileNamesFromUser {
         result[fileNameFromUser] = nil as String?
-        if let candidate = findBestCandidate(candidates: fileNames, nameInput: fileNameFromUser){
-            result[fileNameFromUser] = candidate
-            fileNames.remove(candidate)
-        }
+//        if let candidate = findBestCandidate(candidates: fileNames, nameInput: fileNameFromUser){
+//            result[fileNameFromUser] = candidate
+//            fileNames.remove(candidate)
+//        }
     }
     return result
+}
+
+private func getNumbers(string: String) -> [String] {
+    let regex = try! NSRegularExpression(pattern: "\\d+")
+    let range = NSRange(location: 0, length: string.utf16.count)
+    return regex.matches(in: string, options: [], range: range)
+        .map {String(string[Range($0.range, in: string)!])}
 }
 
 private func findEasyMatches(fileNamesFromUser: [String], filesInSrcDirectory: Set<String>) -> [String:String?]{

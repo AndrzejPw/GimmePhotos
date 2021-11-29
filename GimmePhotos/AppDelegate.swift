@@ -12,7 +12,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBAction func onAboutMenuClicked(_ sender: NSMenuItem) {
     
-        let options = [NSApplication.AboutPanelOptionKey.credits : NSAttributedString(string: "creditse we")]
         NSApplication.shared.orderFrontStandardAboutPanel(options: [:])
     }
     

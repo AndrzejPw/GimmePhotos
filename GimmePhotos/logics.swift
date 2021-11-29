@@ -11,6 +11,7 @@ import Foundation
 func copy(from: String, to: String, fileInputFromUser: String) throws -> [String:String?] {
     let fileManager = FileManager.default
     let filesInSrcDirectory = try fileManager.contentsOfDirectory(atPath: from)
+        .filter {!$0.isDirectory()}
     
     let filesToCopy = guessWhichFiles(filesInSrcDirectory, fileInputFromUser)
     for fileToCopy in filesToCopy.values.compactMap({$0}) {

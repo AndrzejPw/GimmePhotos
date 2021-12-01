@@ -116,10 +116,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="452" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
+                            <textField verticalHuggingPriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
                                 <rect key="frame" x="20" y="48" width="412" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="999" constant="500" id="p7q-x9-A6d"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="96" id="yaL-Yu-ydq"/>
+                                </constraints>
                                 <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter numbers of files to copy (e.g. for files IMG_2001.jpg and IMG_2050.jpg enter &quot;2001, 2005&quot;)" drawsBackground="YES" id="Dfb-rX-SQU">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>

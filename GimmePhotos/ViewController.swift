@@ -21,8 +21,16 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
     }
 
-    @IBOutlet weak var srcDirectoryLabel: NSTextField!
-    @IBOutlet weak var targetDirectoryLabel: NSTextField!
+    @IBOutlet weak var srcDirectoryLabel: NSTextField!{
+        didSet {
+            srcDirectoryLabel.delegate = self
+        }
+    }
+    @IBOutlet weak var targetDirectoryLabel: NSTextField!{
+        didSet {
+            targetDirectoryLabel.delegate = self
+        }
+    }
     @IBAction func onSelectTargetDirectoryButtonClicked(_ sender: Any) {
         refreshCopyButtonState()
         let dialog = NSOpenPanel()

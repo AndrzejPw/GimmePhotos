@@ -116,14 +116,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="452" height="225"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
-                                <rect key="frame" x="20" y="48" width="412" height="96"/>
-                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter numbers of files to copy (e.g. for files IMG_2001.jpg and IMG_2050.jpg enter &quot;2001, 2005&quot;)" drawsBackground="YES" id="Dfb-rX-SQU">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EiY-Vi-ZKU">
                                 <rect key="frame" x="20" y="184" width="315" height="21"/>
                                 <constraints>
@@ -163,7 +155,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
+                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ajp-hE-ln7">
                                 <rect key="frame" x="13" y="13" width="95" height="32"/>
                                 <buttonCell key="cell" type="push" title="Copy files" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EbX-fK-OIx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -173,14 +165,36 @@
                                     <action selector="onRunButtonClicked:" target="XfG-lQ-9wD" id="XDu-4R-GK6"/>
                                 </connections>
                             </button>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0xW-wX-Xln">
+                                <rect key="frame" x="19" y="47" width="414" height="98"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" id="UXd-yR-kfz">
+                                    <rect key="frame" x="1" y="1" width="412" height="96"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VYn-Ap-h2b">
+                                            <rect key="frame" x="0.0" y="0.0" width="412" height="96"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter numbers of files to copy (e.g. for files IMG_2001.jpg and IMG_2050.jpg enter &quot;2001, 2005&quot;)" drawsBackground="YES" id="Dfb-rX-SQU">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="cuY-3f-irH">
+                                    <rect key="frame" x="1" y="81" width="412" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="mSU-EZ-1Jj">
+                                    <rect key="frame" x="397" y="1" width="16" height="96"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="24h-fM-5GB"/>
-                            <constraint firstItem="Ajp-hE-ln7" firstAttribute="leading" secondItem="VYn-Ap-h2b" secondAttribute="leading" id="4vC-W5-OgF"/>
-                            <constraint firstAttribute="trailing" secondItem="VYn-Ap-h2b" secondAttribute="trailing" constant="20" symbolic="YES" id="BR4-wE-NDl"/>
-                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="trailing" secondItem="AqT-iy-NUK" secondAttribute="trailing" id="CtI-eN-ufz"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="FVO-6B-1ia"/>
-                            <constraint firstItem="Ajp-hE-ln7" firstAttribute="top" secondItem="VYn-Ap-h2b" secondAttribute="bottom" constant="8" symbolic="YES" id="GFu-OW-AfL"/>
                             <constraint firstItem="5hm-Wn-Ojz" firstAttribute="leading" secondItem="EiY-Vi-ZKU" secondAttribute="trailing" constant="8" symbolic="YES" id="HrN-0O-Pnl"/>
                             <constraint firstItem="AqT-iy-NUK" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="trailing" constant="8" symbolic="YES" id="ICl-t7-Gi9"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="leading" secondItem="x4o-TA-nji" secondAttribute="leading" id="M9A-ub-mO8"/>
@@ -190,7 +204,6 @@
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="trailing" secondItem="x4o-TA-nji" secondAttribute="trailing" id="V5B-p7-I15"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="baseline" secondItem="5hm-Wn-Ojz" secondAttribute="baseline" id="bI0-Uq-dy2"/>
                             <constraint firstAttribute="bottom" secondItem="Ajp-hE-ln7" secondAttribute="bottom" constant="20" symbolic="YES" id="fYR-5B-AAv"/>
-                            <constraint firstItem="VYn-Ap-h2b" firstAttribute="top" secondItem="AqT-iy-NUK" secondAttribute="bottom" constant="8" symbolic="YES" id="ufP-p7-hwR"/>
                             <constraint firstAttribute="trailing" secondItem="5hm-Wn-Ojz" secondAttribute="trailing" constant="20" symbolic="YES" id="zEh-gw-172"/>
                             <constraint firstItem="EiY-Vi-ZKU" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="zXr-sk-5Ty"/>
                         </constraints>
